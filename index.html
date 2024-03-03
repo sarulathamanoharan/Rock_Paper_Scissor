@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Play Time</title>
+    <!-- add icon link -->
+    <link rel="icon" href="assets/game.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <canvas class="confetti" id="canvas"></canvas>
+      <div class="head">
+        <div class="title">
+          <img src="assets/title.png" alt="title_name" />
+        </div>
+        <div class="scores">
+          <div class="score">
+            <p>USER</p>
+            <h1>0</h1>
+          </div>
+          <div class="botscore">
+            <p>BOT</p>
+            <h1>0</h1>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="paper">
+          <img
+            src="assets/Paper.png"
+            alt="hand-paper"
+            onclick="userHand('paper')"
+            onmousedown="audio.play()"
+          />
+        </div>
+        <div class="scissor">
+          <img
+            src="assets/Scissors.png"
+            alt="hand-scissors"
+            onclick="userHand('scissor');audio.play();"
+            onmousedown="audio.play()"
+          />
+        </div>
+        <div class="rock">
+          <img
+            src="assets/Rock.png"
+            alt="hand-rock"
+            onclick="userHand('rock');audio.play();"
+            onmousedown="audio.play()"
+          />
+        </div>
+      </div>
+
+      <div class="contest">
+        <div class="userhand">
+          <h1>User Hand</h1>
+          <div class="handimage">
+            <img id="userpicked" src="assets/Paper.png" alt="" />
+          </div>
+        </div>
+        <div class="result">
+          <div class="announcement"><h1>You Win , lose or tie</h1></div>
+          <div
+            class="playagain"
+            onclick="restart()"
+            onmousedown="pressbutton()"
+          >
+            PLAY AGAIN
+          </div>
+        </div>
+        <div class="bothand">
+          <h1>Bot Hand</h1>
+          <div class="handimage">
+            <img id="botpicked" src="assets/Scissors.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <button onclick="togglePopup()" onmousedown="pressbutton()" class="rules">
+        RULES
+      </button>
+      <div class="model" id="model">
+        <div class="model-head">
+          <div class="model-title">Game Rules</div>
+          <button
+            onclick="togglePopup()"
+            onmousedown="audio.play()"
+            class="close-button"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="content">
+          <ul>
+            <li>
+              &#9947; Rock beats scissors, scissors beat paper, and paper beats
+              rock.
+            </li>
+            <li>
+              &#9947; Agree ahead of time whether you will count off “rock,
+              paper, scissors, shoot” or just “rock, paper, scissors.”
+            </li>
+            <li>
+              &#9947; Use rock, paper, scissors to settle minor decisions or
+              simply play to pass the time
+            </li>
+            <li>
+              &#9947; If both players lay down the same hand, each player lays
+              down another hand
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="overlay"></div>
+    </div>
+    <script src="JS/script.js"></script>
+    <script src="JS/confetti-script.js"></script>
+  </body>
+</html>
